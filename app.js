@@ -41,10 +41,10 @@ app.delete("/person/:id", async (request, response) => {
         response.send(result);
 });
 
-app.delete("/person", async (request, response) => {
-    var result = await PersonModel.deleteMany().exec();
-    response.send(result);
-});
+// app.delete("/person", async (request, response) => {
+//     var result = await PersonModel.deleteMany().exec();
+//     response.send(result);
+// });
 
 app.listen(3000, () => {
     console.log("Listening at :3000");
