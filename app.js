@@ -27,6 +27,7 @@ app.get("/person", async (request,response) => {
 app.get("/person/:id", async (request, response) => {
     var person = await PersonModel.findById(request.params.id).exec();
     response.send(person);
+    console.log(person)
 });
 
 app.put("/person/:id", async (request, response) => {
@@ -37,11 +38,11 @@ app.put("/person/:id", async (request, response) => {
 });
 
 app.delete("/person/:id", async (request, response) => {
-        var result = await PersonModel.deleteOne({ _id: request.params.id }).exec();
+        var result = await PersonModel.deleteOne({ firstname: request.params.id }).exec();
         response.send(result);
 });
 
-app.delete("/person", async (request, response) => {
+app.delete("/personall", async (request, response) => {
     var result = await PersonModel.deleteMany().exec();
     response.send(result);
 });
